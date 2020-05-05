@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewmodels="clr-namespace:Tasker.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Tasker.Views.LoginView"
+             Title="Sign in">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel></viewmodels:LoginViewModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="20" Padding="20">
+        <Entry Text="{Binding Username}" Placeholder="Usename"></Entry>
+        <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
+        <Button Command="{Binding LoginCommand}" Text="Sign In" FontSize="30"></Button>
+        <Button Text="Go to Tasks Page"
+                Clicked="NavigateToTasksPage" />
+
+    </StackLayout>
+
+
+</ContentPage>
