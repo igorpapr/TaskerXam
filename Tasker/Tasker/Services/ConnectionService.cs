@@ -11,7 +11,8 @@ namespace Tasker.Services
 {
     public class ConnectionService
     {
-        public const string BASE_ADDRESS = "http://192.168.1.4:8080/api/";
+        //public const string BASE_ADDRESS = "http://192.168.1.4:8080/api/";
+        public const string BASE_ADDRESS = "https://taskerappbc.herokuapp.com/api/";
         public const string LOGIN_ADDRESS = "auth/login";
         public const string TASKS_ADDRESS = "tasks";
 

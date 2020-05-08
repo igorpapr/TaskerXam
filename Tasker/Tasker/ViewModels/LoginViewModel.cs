@@ -7,34 +7,26 @@ using Tasker.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Tasker.Views;
-using System.Threading.Tasks;
 
 namespace Tasker.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
         private readonly ConnectionService api = new ConnectionService();
-
         public string Username { get; set; }
         public string Password { get; set; }
-
-
-        public LoginViewModel()
-        {}
 
         public ICommand LoginCommand
         {
             get
             {
                 return new Command(async () =>
-                {
-                    
+                {                    
                     var user = new UserLoginData
                     {
                         Username = Username,
                         Password = Password
                     };
-
                     string token = await api.Login(user);
 
                     if (string.IsNullOrEmpty(token))
@@ -56,7 +48,6 @@ namespace Tasker.ViewModels
                 });
             }
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

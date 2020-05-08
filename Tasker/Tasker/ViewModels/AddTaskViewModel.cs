@@ -15,6 +15,12 @@ namespace Tasker.ViewModels
     {
 
         ConnectionService api = new ConnectionService();
+        ICommand refreshBack;
+
+        public AddTaskViewModel(ICommand refreshBack)
+        {
+            this.refreshBack = refreshBack;
+        }
 
         public string Title { get; set; }
         public string Description { get; set; }
@@ -37,6 +43,10 @@ namespace Tasker.ViewModels
                         var res = await api.AddTask(task, token);
                         if (res)
                         {
+                            if (refreshBack.CanExecute(null))
+                            {
+                                refreshBack.Execute(null);
+                            }
                             await Application.Current.MainPage.Navigation.PopAsync();
                         }
                         else

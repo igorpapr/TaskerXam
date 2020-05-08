@@ -15,9 +15,6 @@
         <Entry Text="{Binding Username}" Placeholder="Usename"></Entry>
         <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
         <Button Command="{Binding LoginCommand}" Text="Sign In" FontSize="30"></Button>
-        <Button Text="Go to Tasks Page"
-                Clicked="NavigateToTasksPage" />
-
     </StackLayout>
 
 

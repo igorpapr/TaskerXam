@@ -13,15 +13,13 @@ namespace Tasker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddTaskView : ContentPage
     {
-        private ICommand _refreshList;
         AddTaskViewModel addTaskViewModel;
 
         public AddTaskView(ICommand refreshList)
         {
             InitializeComponent();
-            addTaskViewModel = new AddTaskViewModel();
+            addTaskViewModel = new AddTaskViewModel(refreshList);
             BindingContext = addTaskViewModel;
-            _refreshList = refreshList;
         }
 
         private void AddTask(object sender, EventArgs e)
@@ -29,10 +27,6 @@ namespace Tasker.Views
             if (addTaskViewModel.AddCommand.CanExecute(null))
             {
                 addTaskViewModel.AddCommand.Execute(null);
-                if (_refreshList.CanExecute(null))
-                {
-                    _refreshList.Execute(null);
-                }
             }
             
         }

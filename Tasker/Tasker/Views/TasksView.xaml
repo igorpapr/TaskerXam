@@ -7,8 +7,6 @@
              mc:Ignorable="d"
              x:Class="Tasker.Views.TasksView"
              Title="My Tasks">
-    
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Log out"
                      Clicked="LogOut"
@@ -16,13 +14,6 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout Padding="20">
-        
-        <Button Command="{Binding GetTasksCommand}"
-                    Text="Refresh"
-                    TextColor="White"
-                    FontSize="Large"
-                    BackgroundColor="DarkBlue"/>
-        
         <Button Text="Add Task"
                 Clicked="AddNewTask"
                 TextColor="White"
